@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Border - Red Social para Pacientes Mentales</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4e54c8;
-            --primary-light: #6a71e6;
-            --secondary: #ff6b6b;
+            --primary: #7a5af5;
+            --primary-light: #937dff;
+            --secondary: #ff7eb3;
             --accent: #4ecdc4;
-            --dark: #2d3436;
-            --light: #f7f9fc;
-            --success: #00b894;
-            --warning: #fdcb6e;
-            --danger: #ff7675;
-            --gray: #636e72;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --dark-card: #1a1a1a;
+            --light: #f0f0f0;
+            --gray: #a0a0a0;
+            --dark-gray: #444;
             --border-radius: 12px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             --transition: all 0.3s ease;
         }
         
@@ -31,9 +31,10 @@
         
         body {
             font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            color: var(--dark);
+            background: linear-gradient(135deg, #0f0f1a 0%, #0a0a12 100%);
+            color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -44,7 +45,7 @@
         /* Sidebar */
         .sidebar {
             width: 260px;
-            background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+            background: linear-gradient(to bottom, #1a1a2e, #16213e);
             color: white;
             padding: 25px 15px;
             box-shadow: var(--shadow);
@@ -53,6 +54,7 @@
             z-index: 100;
             overflow-y: auto;
             transition: var(--transition);
+            border-right: 1px solid rgba(122, 90, 245, 0.2);
         }
         
         .logo {
@@ -66,6 +68,9 @@
             font-size: 28px;
             margin-right: 12px;
             color: var(--accent);
+            background: rgba(122, 90, 245, 0.1);
+            padding: 8px;
+            border-radius: 50%;
         }
         
         .logo h1 {
@@ -73,6 +78,9 @@
             font-weight: 700;
             font-size: 24px;
             letter-spacing: 0.5px;
+            background: linear-gradient(to right, #7a5af5, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav-links {
@@ -88,7 +96,7 @@
             display: flex;
             align-items: center;
             padding: 12px 15px;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             border-radius: var(--border-radius);
             transition: var(--transition);
@@ -96,8 +104,9 @@
         }
         
         .nav-links a:hover, .nav-links a.active {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(122, 90, 245, 0.2);
             color: white;
+            transform: translateX(5px);
         }
         
         .nav-links i {
@@ -105,6 +114,7 @@
             font-size: 20px;
             width: 24px;
             text-align: center;
+            color: var(--primary-light);
         }
         
         .profile-mini {
@@ -112,8 +122,16 @@
             align-items: center;
             padding: 15px 10px;
             margin-top: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(10, 10, 18, 0.6);
             border-radius: var(--border-radius);
+            border: 1px solid rgba(122, 90, 245, 0.3);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .profile-mini:hover {
+            background: rgba(122, 90, 245, 0.15);
+            transform: translateY(-3px);
         }
         
         .profile-mini img {
@@ -122,18 +140,20 @@
             border-radius: 50%;
             object-fit: cover;
             margin-right: 12px;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px rgba(122, 90, 245, 0.5);
         }
         
         .profile-mini h3 {
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 3px;
+            color: white;
         }
         
         .profile-mini p {
             font-size: 13px;
-            opacity: 0.8;
+            color: var(--gray);
         }
         
         /* Main Content */
@@ -141,6 +161,7 @@
             flex: 1;
             margin-left: 260px;
             padding: 30px;
+            background: linear-gradient(to bottom, #0a0a12, #0f0f1a);
         }
         
         .header {
@@ -153,11 +174,12 @@
         .search-bar {
             display: flex;
             align-items: center;
-            background: white;
+            background: rgba(26, 26, 42, 0.8);
             border-radius: 30px;
             padding: 8px 20px;
             box-shadow: var(--shadow);
             width: 400px;
+            border: 1px solid rgba(122, 90, 245, 0.3);
         }
         
         .search-bar input {
@@ -167,10 +189,15 @@
             width: 100%;
             font-size: 15px;
             outline: none;
+            color: white;
+        }
+        
+        .search-bar input::placeholder {
+            color: var(--gray);
         }
         
         .search-bar i {
-            color: var(--gray);
+            color: var(--primary-light);
             font-size: 18px;
         }
         
@@ -183,8 +210,14 @@
             position: relative;
             margin-right: 20px;
             font-size: 22px;
-            color: var(--dark);
+            color: var(--light);
             cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .notification:hover, .messages:hover {
+            color: var(--primary-light);
+            transform: scale(1.1);
         }
         
         .notification::after, .messages::after {
@@ -196,12 +229,21 @@
             height: 10px;
             background: var(--secondary);
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid var(--dark);
         }
         
         .user-profile {
             display: flex;
             align-items: center;
+            background: rgba(26, 26, 42, 0.8);
+            padding: 8px 15px;
+            border-radius: 30px;
+            border: 1px solid rgba(122, 90, 245, 0.3);
+            transition: var(--transition);
+        }
+        
+        .user-profile:hover {
+            background: rgba(122, 90, 245, 0.15);
         }
         
         .user-profile img {
@@ -211,6 +253,7 @@
             object-fit: cover;
             margin-right: 12px;
             border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(122, 90, 245, 0.4);
         }
         
         /* Content Grid */
@@ -221,11 +264,16 @@
         }
         
         .card {
-            background: white;
+            background: var(--dark-card);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             padding: 25px;
             margin-bottom: 25px;
+            border: 1px solid rgba(122, 90, 245, 0.1);
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(122, 90, 245, 0.2);
         }
         
         .card-header {
@@ -234,25 +282,35 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .card-header h2 {
             font-size: 20px;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--light);
+            background: linear-gradient(to right, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .card-header i {
-            color: var(--gray);
+            color: var(--primary-light);
             font-size: 18px;
             cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .card-header i:hover {
+            color: var(--accent);
+            transform: scale(1.2);
         }
         
         /* Mood Tracker */
         .mood-tracker .moods {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
             margin-bottom: 20px;
         }
         
@@ -262,10 +320,21 @@
             align-items: center;
             cursor: pointer;
             transition: var(--transition);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background: rgba(26, 26, 42, 0.5);
+            border: 1px solid rgba(122, 90, 245, 0.1);
         }
         
         .mood:hover {
+            background: rgba(122, 90, 245, 0.15);
             transform: translateY(-5px);
+        }
+        
+        .mood.selected {
+            background: rgba(122, 90, 245, 0.25);
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 15px rgba(122, 90, 245, 0.3);
         }
         
         .mood-icon {
@@ -277,26 +346,33 @@
             justify-content: center;
             font-size: 22px;
             margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary), #937dff);
+            color: white;
         }
         
-        .mood-1 { background: #ff7675; }
-        .mood-2 { background: #fdcb6e; }
-        .mood-3 { background: #a29bfe; }
-        .mood-4 { background: #74b9ff; }
-        .mood-5 { background: #55efc4; }
+        .mood-1 { background: linear-gradient(135deg, #ff7eb3, #ff758c); }
+        .mood-2 { background: linear-gradient(135deg, #6a71e6, #4e54c8); }
+        .mood-3 { background: linear-gradient(135deg, #937dff, #7a5af5); }
+        .mood-4 { background: linear-gradient(135deg, #a29bfe, #6366f1); }
+        .mood-5 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+        .mood-6 { background: linear-gradient(135deg, #55efc4, #00b894); }
+        .mood-7 { background: linear-gradient(135deg, #fdcb6e, #f39c12); }
         
         .mood span {
             font-size: 13px;
-            color: var(--gray);
+            color: var(--light);
+            text-align: center;
+            font-weight: 500;
         }
         
         /* Create Post */
         .create-post {
-            background: white;
+            background: var(--dark-card);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             padding: 20px;
             margin-bottom: 25px;
+            border: 1px solid rgba(122, 90, 245, 0.1);
         }
         
         .post-header {
@@ -311,26 +387,35 @@
             border-radius: 50%;
             object-fit: cover;
             margin-right: 15px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px rgba(122, 90, 245, 0.3);
         }
         
         .post-input {
             flex: 1;
-            border: 1px solid #eee;
+            background: rgba(26, 26, 42, 0.5);
+            border: 1px solid rgba(122, 90, 245, 0.2);
             border-radius: 30px;
             padding: 12px 20px;
             font-size: 15px;
             transition: var(--transition);
+            color: white;
         }
         
-        .post-input:hover {
+        .post-input:hover, .post-input:focus {
             border-color: var(--primary-light);
+            background: rgba(26, 26, 42, 0.8);
+        }
+        
+        .post-input::placeholder {
+            color: var(--gray);
         }
         
         .post-actions {
             display: flex;
             justify-content: space-between;
             padding-top: 15px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .post-action {
@@ -344,8 +429,8 @@
         }
         
         .post-action:hover {
-            background: rgba(78, 84, 200, 0.1);
-            color: var(--primary);
+            background: rgba(122, 90, 245, 0.1);
+            color: var(--primary-light);
         }
         
         .post-action i {
@@ -359,11 +444,18 @@
         }
         
         .post {
-            background: white;
+            background: var(--dark-card);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             margin-bottom: 25px;
             overflow: hidden;
+            border: 1px solid rgba(122, 90, 245, 0.1);
+            transition: var(--transition);
+        }
+        
+        .post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(122, 90, 245, 0.2);
         }
         
         .post-header {
@@ -378,12 +470,15 @@
             border-radius: 50%;
             object-fit: cover;
             margin-right: 15px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px rgba(122, 90, 245, 0.3);
         }
         
         .post-user-info h3 {
             font-weight: 600;
             font-size: 16px;
             margin-bottom: 3px;
+            color: var(--light);
         }
         
         .post-user-info p {
@@ -399,20 +494,22 @@
             margin-bottom: 15px;
             font-size: 15px;
             line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
         }
         
         .post-image {
             width: 100%;
             border-radius: var(--border-radius);
             margin-bottom: 15px;
+            border: 1px solid rgba(122, 90, 245, 0.1);
         }
         
         .post-stats {
             display: flex;
             justify-content: space-between;
             padding: 10px 20px;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 14px;
             color: var(--gray);
         }
@@ -435,8 +532,8 @@
         }
         
         .post-action-btn:hover {
-            background: rgba(78, 84, 200, 0.1);
-            color: var(--primary);
+            background: rgba(122, 90, 245, 0.1);
+            color: var(--primary-light);
         }
         
         .post-action-btn i {
@@ -450,21 +547,23 @@
             align-items: center;
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(78, 205, 196, 0.1);
+            background: rgba(26, 26, 42, 0.5);
             border-radius: var(--border-radius);
             transition: var(--transition);
             cursor: pointer;
+            border: 1px solid rgba(122, 90, 245, 0.1);
         }
         
         .resource:hover {
-            background: rgba(78, 205, 196, 0.2);
+            background: rgba(122, 90, 245, 0.15);
             transform: translateX(5px);
+            border-color: var(--primary);
         }
         
         .resource-icon {
             width: 50px;
             height: 50px;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -478,6 +577,7 @@
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 5px;
+            color: var(--light);
         }
         
         .resource-info p {
@@ -491,7 +591,7 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .group:last-child {
@@ -506,12 +606,14 @@
             border-radius: var(--border-radius);
             object-fit: cover;
             margin-right: 15px;
+            border: 1px solid rgba(122, 90, 245, 0.2);
         }
         
         .group-info h3 {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 5px;
+            color: var(--light);
         }
         
         .group-info p {
@@ -532,7 +634,7 @@
         }
         
         .btn {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
             border: none;
             padding: 10px 20px;
@@ -543,6 +645,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px rgba(122, 90, 245, 0.3);
         }
         
         .btn i {
@@ -550,23 +653,43 @@
         }
         
         .btn:hover {
-            background: var(--primary-light);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 90, 245, 0.4);
         }
         
         .btn-outline {
             background: transparent;
             border: 1px solid var(--primary);
             color: var(--primary);
+            box-shadow: none;
         }
         
         .btn-outline:hover {
-            background: rgba(78, 84, 200, 0.1);
+            background: rgba(122, 90, 245, 0.1);
+            box-shadow: 0 4px 15px rgba(122, 90, 245, 0.2);
         }
         
         .btn-small {
             padding: 6px 15px;
             font-size: 14px;
+        }
+        
+        /* Space Background Effect */
+        .space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0f0f1a 0%, #05050a 100%);
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
         }
         
         /* Responsive */
@@ -630,6 +753,9 @@
     </style>
 </head>
 <body>
+    <!-- Space Background -->
+    <div class="space-bg" id="space-bg"></div>
+    
     <div class="container">
         <!-- Sidebar -->
         <div class="sidebar">
@@ -650,9 +776,9 @@
             </ul>
             
             <div class="profile-mini">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Perfil">
+                <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Perfil">
                 <div>
-                    <h3>María López</h3>
+                    <h3>Mayra Schwarzschild</h3>
                     <p>Miembro desde 2023</p>
                 </div>
             </div>
@@ -674,10 +800,10 @@
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="user-profile">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario">
+                        <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                         <div>
-                            <h3>María López</h3>
-                            <p>Ansiedad & Depresión</p>
+                            <h3>Mayra Schwarzschild</h3>
+                            <p>Trastorno Bipolar</p>
                         </div>
                     </div>
                 </div>
@@ -694,38 +820,50 @@
                         </div>
                         
                         <div class="mood-tracker">
-                            <p>¿Cómo te sientes hoy?</p>
+                            <p>¿Cómo te sentís hoy?</p>
                             
                             <div class="moods">
-                                <div class="mood">
+                                <div class="mood" data-mood="eufórico">
                                     <div class="mood-icon mood-1">
+                                        <i class="fas fa-grin-stars"></i>
+                                    </div>
+                                    <span>Eufórico</span>
+                                </div>
+                                <div class="mood" data-mood="deprimido">
+                                    <div class="mood-icon mood-2">
                                         <i class="fas fa-frown"></i>
                                     </div>
-                                    <span>Malo</span>
+                                    <span>Deprimido</span>
                                 </div>
-                                <div class="mood">
-                                    <div class="mood-icon mood-2">
+                                <div class="mood" data-mood="disociado">
+                                    <div class="mood-icon mood-3">
+                                        <i class="fas fa-meh-blank"></i>
+                                    </div>
+                                    <span>Disociado</span>
+                                </div>
+                                <div class="mood" data-mood="vacío">
+                                    <div class="mood-icon mood-4">
                                         <i class="fas fa-meh"></i>
                                     </div>
-                                    <span>Regular</span>
+                                    <span>Vacío</span>
                                 </div>
-                                <div class="mood">
-                                    <div class="mood-icon mood-3">
+                                <div class="mood" data-mood="no soy yo">
+                                    <div class="mood-icon mood-5">
+                                        <i class="fas fa-user-alt-slash"></i>
+                                    </div>
+                                    <span>No soy yo</span>
+                                </div>
+                                <div class="mood" data-mood="bien">
+                                    <div class="mood-icon mood-6">
                                         <i class="fas fa-smile"></i>
                                     </div>
                                     <span>Bien</span>
                                 </div>
-                                <div class="mood">
-                                    <div class="mood-icon mood-4">
+                                <div class="mood" data-mood="muy bien">
+                                    <div class="mood-icon mood-7">
                                         <i class="fas fa-laugh"></i>
                                     </div>
-                                    <span>Genial</span>
-                                </div>
-                                <div class="mood">
-                                    <div class="mood-icon mood-5">
-                                        <i class="fas fa-grin-stars"></i>
-                                    </div>
-                                    <span>Excelente</span>
+                                    <span>Muy bien</span>
                                 </div>
                             </div>
                             
@@ -795,17 +933,17 @@
                     <!-- Create Post -->
                     <div class="create-post">
                         <div class="post-header">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario">
-                            <input type="text" class="post-input" placeholder="¿Qué estás pensando, María?">
+                            <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
+                            <input type="text" class="post-input" placeholder="¿Qué estás pensando, Mayra?">
                         </div>
                         
                         <div class="post-actions">
                             <div class="post-action">
-                                <i class="fas fa-image" style="color: #4e54c8;"></i>
+                                <i class="fas fa-image" style="color: #7a5af5;"></i>
                                 <span>Foto</span>
                             </div>
                             <div class="post-action">
-                                <i class="fas fa-user-tag" style="color: #ff6b6b;"></i>
+                                <i class="fas fa-user-tag" style="color: #ff7eb3;"></i>
                                 <span>Etiquetar</span>
                             </div>
                             <div class="post-action">
@@ -813,7 +951,7 @@
                                 <span>Estado</span>
                             </div>
                             <div class="post-action">
-                                <i class="fas fa-map-marker-alt" style="color: #00b894;"></i>
+                                <i class="fas fa-map-marker-alt" style="color: #4ecdc4;"></i>
                                 <span>Ubicación</span>
                             </div>
                         </div>
@@ -824,7 +962,7 @@
                         <!-- Post 1 -->
                         <div class="post">
                             <div class="post-header">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
                                     <h3>Carlos Martínez</h3>
                                     <p>Hace 2 horas · <i class="fas fa-globe-americas"></i></p>
@@ -835,7 +973,7 @@
                                 <p class="post-text">Hoy fue un día difícil. Tuve un ataque de ansiedad en el trabajo, pero pude aplicar las técnicas de respiración que aprendí aquí. Gracias a todos por su apoyo constante. 💙 #Ansiedad #Recuperación</p>
                                 
                                 <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 24 personas</div>
+                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 24 personas</div>
                                     <div>8 comentarios · 3 compartidos</div>
                                 </div>
                             </div>
@@ -859,7 +997,7 @@
                         <!-- Post 2 -->
                         <div class="post">
                             <div class="post-header">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Usuario">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
                                     <h3>Ana Rodríguez</h3>
                                     <p>Ayer a las 15:24 · <i class="fas fa-users"></i> Grupo: Depresión</p>
@@ -872,7 +1010,7 @@
                                 <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="post-image">
                                 
                                 <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 42 personas</div>
+                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 42 personas</div>
                                     <div>15 comentarios · 7 compartidos</div>
                                 </div>
                             </div>
@@ -896,7 +1034,7 @@
                         <!-- Post 3 -->
                         <div class="post">
                             <div class="post-header">
-                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Usuario">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
                                     <h3>Dr. Javier Morales</h3>
                                     <p>Psicólogo · Ayer a las 10:15</p>
@@ -907,7 +1045,7 @@
                                 <p class="post-text">Recordatorio: Este viernes tendremos nuestra sesión grupal sobre "Manejo de emociones en tiempos difíciles". Los espero a todos en el foro a las 17:00. ¡Traigan sus preguntas! 👨‍⚕️</p>
                                 
                                 <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff6b6b;"></i> 31 personas</div>
+                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 31 personas</div>
                                     <div>12 comentarios · 5 compartidos</div>
                                 </div>
                             </div>
@@ -991,7 +1129,7 @@
                         
                         <div class="event">
                             <div class="resource">
-                                <div class="resource-icon" style="background: #6a71e6;">
+                                <div class="resource-icon" style="background: linear-gradient(135deg, #7a5af5, #937dff);">
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <div class="resource-info">
@@ -1001,7 +1139,7 @@
                             </div>
                             
                             <div class="resource">
-                                <div class="resource-icon" style="background: #ff6b6b;">
+                                <div class="resource-icon" style="background: linear-gradient(135deg, #ff7eb3, #ff758c);">
                                     <i class="fas fa-chalkboard-teacher"></i>
                                 </div>
                                 <div class="resource-info">
@@ -1011,7 +1149,7 @@
                             </div>
                             
                             <div class="resource">
-                                <div class="resource-icon" style="background: #00b894;">
+                                <div class="resource-icon" style="background: linear-gradient(135deg, #4ecdc4, #00b894);">
                                     <i class="fas fa-hands-helping"></i>
                                 </div>
                                 <div class="resource-info">
@@ -1033,6 +1171,19 @@
     <script>
         // Funcionalidad básica de la aplicación
         document.addEventListener('DOMContentLoaded', function() {
+            // Crear efecto de estrellas
+            const spaceBg = document.getElementById('space-bg');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = Math.random() * 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.opacity = Math.random() * 0.8 + 0.2;
+                spaceBg.appendChild(star);
+            }
+            
             // Selección de estado emocional
             const moods = document.querySelectorAll('.mood');
             moods.forEach(mood => {
@@ -1044,10 +1195,11 @@
                     this.classList.add('selected');
                     
                     // Obtener el estado emocional seleccionado
-                    const moodText = this.querySelector('span').textContent;
+                    const moodText = this.getAttribute('data-mood');
+                    const moodName = this.querySelector('span').textContent;
                     
                     // Mostrar notificación
-                    alert(`Has seleccionado: ${moodText}. ¡Gracias por compartir tu estado emocional!`);
+                    showNotification(`Has seleccionado: ${moodName}. ¡Gracias por compartir tu estado emocional!`);
                 });
             });
             
@@ -1062,7 +1214,7 @@
                         icon.classList.remove('far');
                         icon.classList.add('fas');
                         text.textContent = 'Te gusta';
-                        this.style.color = '#ff6b6b';
+                        this.style.color = '#ff7eb3';
                     } else {
                         icon.classList.remove('fas');
                         icon.classList.add('far');
@@ -1078,11 +1230,47 @@
                 if (e.key === 'Enter') {
                     const content = this.value.trim();
                     if (content) {
-                        alert(`Publicación creada: "${content}"`);
+                        showNotification(`Publicación creada: "${content}"`);
                         this.value = '';
                     }
                 }
             });
+            
+            // Función para mostrar notificaciones
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.right = '20px';
+                notification.style.backgroundColor = 'rgba(26, 26, 42, 0.9)';
+                notification.style.color = 'white';
+                notification.style.padding = '15px 25px';
+                notification.style.borderRadius = 'var(--border-radius)';
+                notification.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+                notification.style.zIndex = '1000';
+                notification.style.borderLeft = '4px solid var(--primary)';
+                notification.style.transform = 'translateY(100px)';
+                notification.style.opacity = '0';
+                notification.style.transition = 'all 0.4s ease';
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    notification.style.transform = 'translateY(0)';
+                    notification.style.opacity = '1';
+                }, 10);
+                
+                // Desaparecer después de 3 segundos
+                setTimeout(() => {
+                    notification.style.transform = 'translateY(100px)';
+                    notification.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 400);
+                }, 3000);
+            }
         });
     </script>
 </body>
