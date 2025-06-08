@@ -357,6 +357,7 @@
         .mood-5 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
         .mood-6 { background: linear-gradient(135deg, #55efc4, #00b894); }
         .mood-7 { background: linear-gradient(135deg, #fdcb6e, #f39c12); }
+        .mood-8 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
         
         .mood span {
             font-size: 13px;
@@ -541,6 +542,110 @@
             font-size: 18px;
         }
         
+        /* Comment Section */
+        .comments-section {
+            padding: 0 20px 20px;
+            display: none;
+        }
+        
+        .comments-container {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .comment {
+            display: flex;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(26, 26, 42, 0.5);
+            border-radius: var(--border-radius);
+        }
+        
+        .comment img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 1px solid var(--primary);
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--light);
+        }
+        
+        .comment-time {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        .comment-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .add-comment {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .add-comment img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .comment-input {
+            flex: 1;
+            background: rgba(26, 26, 42, 0.8);
+            border: 1px solid rgba(122, 90, 245, 0.3);
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .comment-input:focus {
+            border-color: var(--primary-light);
+        }
+        
+        .send-comment {
+            margin-left: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .send-comment:hover {
+            background: var(--primary-light);
+            transform: scale(1.1);
+        }
+        
         /* Resources */
         .resource {
             display: flex;
@@ -674,6 +779,37 @@
             font-size: 14px;
         }
         
+        /* Groups Tabs */
+        .groups-tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary-light);
+        }
+        
+        .tab:hover:not(.active) {
+            color: var(--primary-light);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
         /* Space Background Effect */
         .space-bg {
             position: fixed;
@@ -690,6 +826,54 @@
             position: absolute;
             background: white;
             border-radius: 50%;
+        }
+        
+        /* Emotion History */
+        .emotion-history {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .history-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(26, 26, 42, 0.3);
+            border-radius: var(--border-radius);
+        }
+        
+        .history-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .history-details {
+            flex: 1;
+        }
+        
+        .history-mood {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .history-date {
+            font-size: 12px;
+            color: var(--gray);
         }
         
         /* Responsive */
@@ -865,11 +1049,26 @@
                                     </div>
                                     <span>Muy bien</span>
                                 </div>
+                                <div class="mood" data-mood="tranquilo">
+                                    <div class="mood-icon mood-8">
+                                        <i class="fas fa-spa"></i>
+                                    </div>
+                                    <span>Tranquilo</span>
+                                </div>
                             </div>
                             
-                            <button class="btn btn-outline" style="width: 100%; margin-top: 10px;">
+                            <button id="viewStats" class="btn btn-outline" style="width: 100%; margin-top: 10px;">
                                 <i class="fas fa-chart-pie"></i> Ver Estadísticas
                             </button>
+                            
+                            <!-- Emotion History -->
+                            <div class="emotion-history">
+                                <div class="history-header">
+                                    <h3>Historial Reciente</h3>
+                                    <span id="clearHistory" style="color: var(--primary-light); cursor: pointer; font-size: 12px;">Limpiar</span>
+                                </div>
+                                <div id="emotionHistoryList"></div>
+                            </div>
                         </div>
                     </div>
                     
@@ -960,7 +1159,7 @@
                     <!-- Feed -->
                     <div class="feed">
                         <!-- Post 1 -->
-                        <div class="post">
+                        <div class="post" data-post-id="1">
                             <div class="post-header">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
@@ -979,11 +1178,11 @@
                             </div>
                             
                             <div class="post-actions">
-                                <div class="post-action-btn">
+                                <div class="post-action-btn like-btn">
                                     <i class="far fa-heart"></i>
                                     <span>Me gusta</span>
                                 </div>
-                                <div class="post-action-btn">
+                                <div class="post-action-btn comment-btn">
                                     <i class="far fa-comment"></i>
                                     <span>Comentar</span>
                                 </div>
@@ -992,10 +1191,24 @@
                                     <span>Compartir</span>
                                 </div>
                             </div>
+                            
+                            <!-- Comment Section -->
+                            <div class="comments-section">
+                                <div class="comments-container">
+                                    <!-- Comments will be added here dynamically -->
+                                </div>
+                                <div class="add-comment">
+                                    <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
+                                    <input type="text" class="comment-input" placeholder="Escribe un comentario...">
+                                    <button class="send-comment">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         
                         <!-- Post 2 -->
-                        <div class="post">
+                        <div class="post" data-post-id="2">
                             <div class="post-header">
                                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
@@ -1016,11 +1229,11 @@
                             </div>
                             
                             <div class="post-actions">
-                                <div class="post-action-btn">
+                                <div class="post-action-btn like-btn">
                                     <i class="far fa-heart"></i>
                                     <span>Me gusta</span>
                                 </div>
-                                <div class="post-action-btn">
+                                <div class="post-action-btn comment-btn">
                                     <i class="far fa-comment"></i>
                                     <span>Comentar</span>
                                 </div>
@@ -1029,39 +1242,18 @@
                                     <span>Compartir</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Post 3 -->
-                        <div class="post">
-                            <div class="post-header">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
-                                <div class="post-user-info">
-                                    <h3>Dr. Javier Morales</h3>
-                                    <p>Psicólogo · Ayer a las 10:15</p>
-                                </div>
-                            </div>
                             
-                            <div class="post-content">
-                                <p class="post-text">Recordatorio: Este viernes tendremos nuestra sesión grupal sobre "Manejo de emociones en tiempos difíciles". Los espero a todos en el foro a las 17:00. ¡Traigan sus preguntas! 👨‍⚕️</p>
-                                
-                                <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 31 personas</div>
-                                    <div>12 comentarios · 5 compartidos</div>
+                            <!-- Comment Section -->
+                            <div class="comments-section">
+                                <div class="comments-container">
+                                    <!-- Comments will be added here dynamically -->
                                 </div>
-                            </div>
-                            
-                            <div class="post-actions">
-                                <div class="post-action-btn">
-                                    <i class="far fa-heart"></i>
-                                    <span>Me gusta</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-comment"></i>
-                                    <span>Comentar</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-share-square"></i>
-                                    <span>Compartir</span>
+                                <div class="add-comment">
+                                    <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
+                                    <input type="text" class="comment-input" placeholder="Escribe un comentario...">
+                                    <button class="send-comment">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1070,47 +1262,79 @@
                 
                 <!-- Right Column -->
                 <div class="right-column">
-                    <!-- Support Groups -->
+                    <!-- Groups Tabs -->
                     <div class="card">
-                        <div class="card-header">
-                            <h2>Grupos de Apoyo</h2>
-                            <i class="fas fa-users"></i>
+                        <div class="groups-tabs">
+                            <div class="tab active" data-tab="my-groups">Mis Grupos</div>
+                            <div class="tab" data-tab="join-groups">Unirse</div>
                         </div>
                         
-                        <div class="groups">
-                            <div class="group">
-                                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
-                                <div class="group-info">
-                                    <h3>Ansiedad y Pánico</h3>
-                                    <p>Comparte experiencias y estrategias</p>
-                                    <div class="group-members">
-                                        <i class="fas fa-users"></i> 1,245 miembros
+                        <!-- My Groups -->
+                        <div class="tab-content active" id="my-groups">
+                            <div class="groups">
+                                <div class="group">
+                                    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                    <div class="group-info">
+                                        <h3>Trastorno Bipolar</h3>
+                                        <p>Apoyo mutuo y comprensión</p>
+                                        <div class="group-members">
+                                            <i class="fas fa-users"></i> 897 miembros
+                                        </div>
+                                        <button class="btn btn-outline btn-small">Ver Grupo</button>
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
+                                </div>
+                                
+                                <div class="group">
+                                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                    <div class="group-info">
+                                        <h3>Ansiedad y Pánico</h3>
+                                        <p>Comparte experiencias y estrategias</p>
+                                        <div class="group-members">
+                                            <i class="fas fa-users"></i> 1,245 miembros
+                                        </div>
+                                        <button class="btn btn-outline btn-small">Ver Grupo</button>
+                                    </div>
                                 </div>
                             </div>
-                            
-                            <div class="group">
-                                <img src="https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
-                                <div class="group-info">
-                                    <h3>Depresión Positiva</h3>
-                                    <p>Encuentra luz en los días oscuros</p>
-                                    <div class="group-members">
-                                        <i class="fas fa-users"></i> 2,187 miembros
+                        </div>
+                        
+                        <!-- Join Groups -->
+                        <div class="tab-content" id="join-groups">
+                            <div class="groups">
+                                <div class="group">
+                                    <img src="https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                    <div class="group-info">
+                                        <h3>Depresión Positiva</h3>
+                                        <p>Encuentra luz en los días oscuros</p>
+                                        <div class="group-members">
+                                            <i class="fas fa-users"></i> 2,187 miembros
+                                        </div>
+                                        <button class="btn btn-outline btn-small">Unirse</button>
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
                                 </div>
-                            </div>
-                            
-                            <div class="group">
-                                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
-                                <div class="group-info">
-                                    <h3>Trastorno Bipolar</h3>
-                                    <p>Apoyo mutuo y comprensión</p>
-                                    <div class="group-members">
-                                        <i class="fas fa-users"></i> 897 miembros
+                                
+                                <div class="group">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                    <div class="group-info">
+                                        <h3>Salud Mental Joven</h3>
+                                        <p>Comunidad para menores de 30 años</p>
+                                        <div class="group-members">
+                                            <i class="fas fa-users"></i> 1,543 miembros
+                                        </div>
+                                        <button class="btn btn-outline btn-small">Unirse</button>
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
+                                </div>
+                                
+                                <div class="group">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                    <div class="group-info">
+                                        <h3>Mindfulness Diario</h3>
+                                        <p>Prácticas de meditación y atención plena</p>
+                                        <div class="group-members">
+                                            <i class="fas fa-users"></i> 3,210 miembros
+                                        </div>
+                                        <button class="btn btn-outline btn-small">Unirse</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1184,6 +1408,10 @@
                 spaceBg.appendChild(star);
             }
             
+            // Cargar historial emocional desde localStorage
+            let emotionHistory = JSON.parse(localStorage.getItem('emotionHistory')) || [];
+            renderEmotionHistory();
+            
             // Selección de estado emocional
             const moods = document.querySelectorAll('.mood');
             moods.forEach(mood => {
@@ -1198,13 +1426,92 @@
                     const moodText = this.getAttribute('data-mood');
                     const moodName = this.querySelector('span').textContent;
                     
+                    // Guardar en el historial
+                    const newEntry = {
+                        mood: moodText,
+                        name: moodName,
+                        date: new Date().toLocaleString(),
+                        icon: this.querySelector('.mood-icon').innerHTML
+                    };
+                    
+                    emotionHistory.unshift(newEntry);
+                    // Mantener solo los últimos 5 registros
+                    if (emotionHistory.length > 5) {
+                        emotionHistory = emotionHistory.slice(0, 5);
+                    }
+                    
+                    // Guardar en localStorage
+                    localStorage.setItem('emotionHistory', JSON.stringify(emotionHistory));
+                    
+                    // Actualizar historial
+                    renderEmotionHistory();
+                    
                     // Mostrar notificación
                     showNotification(`Has seleccionado: ${moodName}. ¡Gracias por compartir tu estado emocional!`);
                 });
             });
             
+            // Botón para ver estadísticas
+            document.getElementById('viewStats').addEventListener('click', function() {
+                if (emotionHistory.length === 0) {
+                    showNotification('Aún no tienes suficiente historial emocional. Selecciona tu estado emocional varias veces para ver estadísticas.');
+                    return;
+                }
+                
+                showNotification(`Estadísticas: ${emotionHistory.length} estados registrados en los últimos días.`);
+            });
+            
+            // Limpiar historial emocional
+            document.getElementById('clearHistory').addEventListener('click', function() {
+                emotionHistory = [];
+                localStorage.removeItem('emotionHistory');
+                renderEmotionHistory();
+                showNotification('Historial emocional limpiado correctamente.');
+            });
+            
+            // Renderizar historial emocional
+            function renderEmotionHistory() {
+                const historyList = document.getElementById('emotionHistoryList');
+                historyList.innerHTML = '';
+                
+                if (emotionHistory.length === 0) {
+                    historyList.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 10px;">No hay historial reciente</p>';
+                    return;
+                }
+                
+                emotionHistory.forEach(entry => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+                    historyItem.innerHTML = `
+                        <div class="history-icon" style="background: ${getMoodColor(entry.mood)};">
+                            ${entry.icon}
+                        </div>
+                        <div class="history-details">
+                            <div class="history-mood">${entry.name}</div>
+                            <div class="history-date">${entry.date}</div>
+                        </div>
+                    `;
+                    historyList.appendChild(historyItem);
+                });
+            }
+            
+            // Obtener color según el estado de ánimo
+            function getMoodColor(mood) {
+                const colors = {
+                    'eufórico': 'linear-gradient(135deg, #ff7eb3, #ff758c)',
+                    'deprimido': 'linear-gradient(135deg, #6a71e6, #4e54c8)',
+                    'disociado': 'linear-gradient(135deg, #937dff, #7a5af5)',
+                    'vacío': 'linear-gradient(135deg, #a29bfe, #6366f1)',
+                    'no soy yo': 'linear-gradient(135deg, #74b9ff, #0984e3)',
+                    'bien': 'linear-gradient(135deg, #55efc4, #00b894)',
+                    'muy bien': 'linear-gradient(135deg, #fdcb6e, #f39c12)',
+                    'tranquilo': 'linear-gradient(135deg, #a29bfe, #6c5ce7)'
+                };
+                return colors[mood] || 'var(--primary)';
+            }
+            
             // Botones de interacción de publicaciones
-            const likeButtons = document.querySelectorAll('.post-action-btn:first-child');
+            const likeButtons = document.querySelectorAll('.like-btn');
             likeButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const icon = this.querySelector('i');
@@ -1234,6 +1541,98 @@
                         this.value = '';
                     }
                 }
+            });
+            
+            // Funcionalidad de comentarios
+            const commentButtons = document.querySelectorAll('.comment-btn');
+            commentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const post = this.closest('.post');
+                    const commentsSection = post.querySelector('.comments-section');
+                    
+                    // Alternar visibilidad de comentarios
+                    if (commentsSection.style.display === 'block') {
+                        commentsSection.style.display = 'none';
+                    } else {
+                        // Ocultar todos los demás comentarios
+                        document.querySelectorAll('.comments-section').forEach(section => {
+                            section.style.display = 'none';
+                        });
+                        commentsSection.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Enviar comentarios
+            const sendButtons = document.querySelectorAll('.send-comment');
+            sendButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const commentInput = this.previousElementSibling;
+                    const commentText = commentInput.value.trim();
+                    
+                    if (commentText) {
+                        const post = this.closest('.post');
+                        const commentsContainer = post.querySelector('.comments-container');
+                        const currentUserImg = document.querySelector('.user-profile img').src;
+                        
+                        // Crear nuevo comentario
+                        const newComment = document.createElement('div');
+                        newComment.className = 'comment';
+                        newComment.innerHTML = `
+                            <img src="${currentUserImg}" alt="Usuario">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">Mayra Schwarzschild</span>
+                                    <span class="comment-time">Ahora</span>
+                                </div>
+                                <div class="comment-text">${commentText}</div>
+                            </div>
+                        `;
+                        
+                        // Agregar al contenedor de comentarios
+                        commentsContainer.appendChild(newComment);
+                        
+                        // Limpiar input
+                        commentInput.value = '';
+                        
+                        // Desplazar al nuevo comentario
+                        commentsContainer.scrollTop = commentsContainer.scrollHeight;
+                        
+                        // Mostrar notificación
+                        showNotification('Comentario publicado');
+                    }
+                });
+            });
+            
+            // También permitir enviar con Enter
+            const commentInputs = document.querySelectorAll('.comment-input');
+            commentInputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        this.nextElementSibling.click();
+                    }
+                });
+            });
+            
+            // Tabs de grupos
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover clase activa de todos los tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Agregar clase activa al tab clickeado
+                    this.classList.add('active');
+                    
+                    // Ocultar todos los contenidos
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Mostrar contenido correspondiente
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
             });
             
             // Función para mostrar notificaciones
