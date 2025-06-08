@@ -1,14 +1,9 @@
 # BORDER
 RED SOCIAL PARA PACIENTES MENTALES
-¡Claro! Aquí tienes un `README.md` conciso y didáctico para tu página web "Border":
-
----
 
 # Border: Red Social para Pacientes Mentales 🧠✨
 
 "Border" es una **plataforma innovadora diseñada para crear un espacio seguro y de apoyo** para individuos que transitan desafíos de salud mental. Más que una red social, es una comunidad donde la comprensión, el seguimiento del bienestar y el acceso a recursos son pilares fundamentales.
-
----
 
 ## Características Principales 🌟
 
@@ -19,8 +14,6 @@ RED SOCIAL PARA PACIENTES MENTALES
 * **Grupos de Apoyo:** Fomenta la creación y participación en grupos temáticos, facilitando la conexión con personas que comparten experiencias similares y la construcción de una red de apoyo sólida.
 * **Navegación Amigable:** Una barra lateral y un encabezado claro con opciones de búsqueda, notificaciones y perfil de usuario, garantizando una experiencia de usuario fluida.
 
----
-
 ## Tecnologías Utilizadas 🛠️
 
 Este proyecto está construido con tecnologías web estándar:
@@ -29,8 +22,6 @@ Este proyecto está construido con tecnologías web estándar:
 * **CSS3:** Para el estilizado y diseño, incluyendo un uso extensivo de variables CSS y `flexbox` para el layout responsivo.
 * **Font Awesome:** Para los iconos que enriquecen la interfaz de usuario.
 * **Google Fonts (Poppins, Open Sans):** Para una tipografía moderna y legible.
-
----
 
 ## ¿Cómo Empezar? 🚀
 
@@ -52,18 +43,12 @@ Este proyecto está construido con tecnologías web estándar:
 4.  Haz "push" a la rama (`git push origin feature/nueva-caracteristica`).
 5.  Abre un "Pull Request".
 
----
-
 ## Licencia 📄
 
 Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 
----
-
 ## Contacto 📧
 
 Para cualquier pregunta o sugerencia, no dudes en contactar a [Tu Nombre/Email/Perfil de GitHub].
-
----
 
 Espero que este `README.md` sea útil para tu proyecto. ¡Si necesitas alguna adición o modificación, no dudes en pedirla!
