@@ -34,7 +34,7 @@
             background: linear-gradient(135deg, #0f0f1a 0%, #0a0a12 100%);
             color: var(--light);
             line-height: 1.6;
-            overflow-x: hidden;
+            /* Se eliminó overflow-x: hidden; para permitir el scroll horizontal si es necesario */
         }
         
         .container {
@@ -357,6 +357,7 @@
         .mood-5 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
         .mood-6 { background: linear-gradient(135deg, #55efc4, #00b894); }
         .mood-7 { background: linear-gradient(135deg, #fdcb6e, #f39c12); }
+        .mood-8 { background: linear-gradient(135deg, #a8e063, #56ab2f); } /* Color for "Tranquilo" */
         
         .mood span {
             font-size: 13px;
@@ -865,6 +866,12 @@
                                     </div>
                                     <span>Muy bien</span>
                                 </div>
+                                <div class="mood" data-mood="tranquilo">
+                                    <div class="mood-icon mood-8">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <span>Tranquilo</span>
+                                </div>
                             </div>
                             
                             <button class="btn btn-outline" style="width: 100%; margin-top: 10px;">
@@ -964,314 +971,137 @@
                             <div class="post-header">
                                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
-                                    <h3>Carlos Martínez</h3>
-                                    <p>Hace 2 horas · <i class="fas fa-globe-americas"></i></p>
+                                    <h3>Ana López</h3>
+                                    <p>hace 2 horas</p>
                                 </div>
                             </div>
-                            
                             <div class="post-content">
-                                <p class="post-text">Hoy fue un día difícil. Tuve un ataque de ansiedad en el trabajo, pero pude aplicar las técnicas de respiración que aprendí aquí. Gracias a todos por su apoyo constante. 💙 #Ansiedad #Recuperación</p>
-                                
-                                <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 24 personas</div>
-                                    <div>8 comentarios · 3 compartidos</div>
-                                </div>
+                                <p class="post-text">Hoy fue un día de grandes avances. Logré salir a caminar por el parque y me sentí muy en paz. Pequeñas victorias que suman mucho. 💪</p>
                             </div>
-                            
+                             <div class="post-stats">
+                                <span><i class="fas fa-thumbs-up"></i> 15 Me gusta</span>
+                                <span>8 Comentarios</span>
+                            </div>
                             <div class="post-actions">
-                                <div class="post-action-btn">
-                                    <i class="far fa-heart"></i>
-                                    <span>Me gusta</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-comment"></i>
-                                    <span>Comentar</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-share-square"></i>
-                                    <span>Compartir</span>
-                                </div>
+                                <div class="post-action-btn"><i class="far fa-thumbs-up"></i> Me gusta</div>
+                                <div class="post-action-btn"><i class="far fa-comment"></i> Comentar</div>
+                                <div class="post-action-btn"><i class="far fa-share-square"></i> Compartir</div>
                             </div>
                         </div>
-                        
-                        <!-- Post 2 -->
+                         <!-- Post 2 -->
                         <div class="post">
                             <div class="post-header">
-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
                                 <div class="post-user-info">
-                                    <h3>Ana Rodríguez</h3>
-                                    <p>Ayer a las 15:24 · <i class="fas fa-users"></i> Grupo: Depresión</p>
+                                    <h3>Carlos Ruiz</h3>
+                                    <p>hace 5 horas</p>
                                 </div>
                             </div>
-                            
                             <div class="post-content">
-                                <p class="post-text">Comparto este artículo que me ayudó a entender mejor mi diagnóstico. Para aquellos que están comenzando este camino, ¡no están solos! 💪</p>
-                                
-                                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="post-image">
-                                
-                                <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 42 personas</div>
-                                    <div>15 comentarios · 7 compartidos</div>
-                                </div>
+                                <p class="post-text">Les comparto esta foto del atardecer. A veces, solo necesitamos detenernos y observar la belleza que nos rodea para recordar que todo pasa.</p>
+                                <img src="https://images.unsplash.com/photo-1502868935221-7214022c0791?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Atardecer" class="post-image">
                             </div>
-                            
+                             <div class="post-stats">
+                                <span><i class="fas fa-thumbs-up"></i> 32 Me gusta</span>
+                                <span>12 Comentarios</span>
+                            </div>
                             <div class="post-actions">
-                                <div class="post-action-btn">
-                                    <i class="far fa-heart"></i>
-                                    <span>Me gusta</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-comment"></i>
-                                    <span>Comentar</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-share-square"></i>
-                                    <span>Compartir</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Post 3 -->
-                        <div class="post">
-                            <div class="post-header">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario">
-                                <div class="post-user-info">
-                                    <h3>Dr. Javier Morales</h3>
-                                    <p>Psicólogo · Ayer a las 10:15</p>
-                                </div>
-                            </div>
-                            
-                            <div class="post-content">
-                                <p class="post-text">Recordatorio: Este viernes tendremos nuestra sesión grupal sobre "Manejo de emociones en tiempos difíciles". Los espero a todos en el foro a las 17:00. ¡Traigan sus preguntas! 👨‍⚕️</p>
-                                
-                                <div class="post-stats">
-                                    <div><i class="fas fa-heart" style="color: #ff7eb3;"></i> 31 personas</div>
-                                    <div>12 comentarios · 5 compartidos</div>
-                                </div>
-                            </div>
-                            
-                            <div class="post-actions">
-                                <div class="post-action-btn">
-                                    <i class="far fa-heart"></i>
-                                    <span>Me gusta</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-comment"></i>
-                                    <span>Comentar</span>
-                                </div>
-                                <div class="post-action-btn">
-                                    <i class="far fa-share-square"></i>
-                                    <span>Compartir</span>
-                                </div>
+                                <div class="post-action-btn"><i class="far fa-thumbs-up"></i> Me gusta</div>
+                                <div class="post-action-btn"><i class="far fa-comment"></i> Comentar</div>
+                                <div class="post-action-btn"><i class="far fa-share-square"></i> Compartir</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Right Column -->
-                <div class="right-column">
+                 <div class="right-column">
                     <!-- Support Groups -->
                     <div class="card">
                         <div class="card-header">
-                            <h2>Grupos de Apoyo</h2>
+                            <h2>Grupos Activos</h2>
                             <i class="fas fa-users"></i>
                         </div>
-                        
                         <div class="groups">
-                            <div class="group">
-                                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                             <div class="group">
+                                <img src="https://images.unsplash.com/photo-1529074962623-a5d24c653537?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo 1">
                                 <div class="group-info">
-                                    <h3>Ansiedad y Pánico</h3>
-                                    <p>Comparte experiencias y estrategias</p>
+                                    <h3>Ansiedad y Estrés</h3>
+                                    <p>Un espacio para compartir y aprender.</p>
                                     <div class="group-members">
-                                        <i class="fas fa-users"></i> 1,245 miembros
+                                        <i class="fas fa-user-friends"></i> 1.2k miembros
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
                                 </div>
                             </div>
-                            
-                            <div class="group">
-                                <img src="https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                             <div class="group">
+                                <img src="https://images.unsplash.com/photo-1576765974026-6a5824855938?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo 2">
                                 <div class="group-info">
-                                    <h3>Depresión Positiva</h3>
-                                    <p>Encuentra luz en los días oscuros</p>
-                                    <div class="group-members">
-                                        <i class="fas fa-users"></i> 2,187 miembros
+                                    <h3>Viviendo con TLP</h3>
+                                    <p>Apoyo mutuo y comprensión.</p>
+                                     <div class="group-members">
+                                        <i class="fas fa-user-friends"></i> 875 miembros
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
                                 </div>
                             </div>
-                            
                             <div class="group">
-                                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo">
+                                <img src="https://images.unsplash.com/photo-1549492423-400259a5e319?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Grupo 3">
                                 <div class="group-info">
-                                    <h3>Trastorno Bipolar</h3>
-                                    <p>Apoyo mutuo y comprensión</p>
+                                    <h3>Creatividad y Bienestar</h3>
+                                    <p>Expresa tus emociones a través del arte.</p>
                                     <div class="group-members">
-                                        <i class="fas fa-users"></i> 897 miembros
+                                        <i class="fas fa-user-friends"></i> 540 miembros
                                     </div>
-                                    <button class="btn btn-outline btn-small">Unirse</button>
                                 </div>
                             </div>
                         </div>
-                        
-                        <button class="btn" style="width: 100%; margin-top: 10px;">
-                            <i class="fas fa-search"></i> Buscar Más Grupos
-                        </button>
-                    </div>
-                    
-                    <!-- Upcoming Events -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>Próximos Eventos</h2>
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        
-                        <div class="event">
-                            <div class="resource">
-                                <div class="resource-icon" style="background: linear-gradient(135deg, #7a5af5, #937dff);">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div class="resource-info">
-                                    <h3>Sesión Grupal: Mindfulness</h3>
-                                    <p>Viernes, 15:00 - 16:30</p>
-                                </div>
-                            </div>
-                            
-                            <div class="resource">
-                                <div class="resource-icon" style="background: linear-gradient(135deg, #ff7eb3, #ff758c);">
-                                    <i class="fas fa-chalkboard-teacher"></i>
-                                </div>
-                                <div class="resource-info">
-                                    <h3>Taller: Manejo de Crisis</h3>
-                                    <p>Sábado, 10:00 - 12:00</p>
-                                </div>
-                            </div>
-                            
-                            <div class="resource">
-                                <div class="resource-icon" style="background: linear-gradient(135deg, #4ecdc4, #00b894);">
-                                    <i class="fas fa-hands-helping"></i>
-                                </div>
-                                <div class="resource-info">
-                                    <h3>Grupo de Apoyo: Depresión</h3>
-                                    <p>Lunes, 18:00 - 19:30</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="btn" style="width: 100%; margin-top: 10px;">
-                            <i class="fas fa-calendar-plus"></i> Crear Evento
+                        <button class="btn-outline btn-small" style="width: 100%; margin-top: 15px;">
+                            Ver más grupos
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script>
+    // Starry background effect
+    const spaceBg = document.getElementById('space-bg');
+    const numStars = 150;
 
-    <script>
-        // Funcionalidad básica de la aplicación
-        document.addEventListener('DOMContentLoaded', function() {
-            // Crear efecto de estrellas
-            const spaceBg = document.getElementById('space-bg');
-            for (let i = 0; i < 150; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.style.width = Math.random() * 2 + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.opacity = Math.random() * 0.8 + 0.2;
-                spaceBg.appendChild(star);
-            }
-            
-            // Selección de estado emocional
-            const moods = document.querySelectorAll('.mood');
-            moods.forEach(mood => {
-                mood.addEventListener('click', function() {
-                    // Remover selección previa
-                    moods.forEach(m => m.classList.remove('selected'));
-                    
-                    // Marcar como seleccionado
-                    this.classList.add('selected');
-                    
-                    // Obtener el estado emocional seleccionado
-                    const moodText = this.getAttribute('data-mood');
-                    const moodName = this.querySelector('span').textContent;
-                    
-                    // Mostrar notificación
-                    showNotification(`Has seleccionado: ${moodName}. ¡Gracias por compartir tu estado emocional!`);
-                });
-            });
-            
-            // Botones de interacción de publicaciones
-            const likeButtons = document.querySelectorAll('.post-action-btn:first-child');
-            likeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const icon = this.querySelector('i');
-                    const text = this.querySelector('span');
-                    
-                    if (icon.classList.contains('far')) {
-                        icon.classList.remove('far');
-                        icon.classList.add('fas');
-                        text.textContent = 'Te gusta';
-                        this.style.color = '#ff7eb3';
-                    } else {
-                        icon.classList.remove('fas');
-                        icon.classList.add('far');
-                        text.textContent = 'Me gusta';
-                        this.style.color = '';
-                    }
-                });
-            });
-            
-            // Botón para crear publicación
-            const postInput = document.querySelector('.post-input');
-            postInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const content = this.value.trim();
-                    if (content) {
-                        showNotification(`Publicación creada: "${content}"`);
-                        this.value = '';
-                    }
-                }
-            });
-            
-            // Función para mostrar notificaciones
-            function showNotification(message) {
-                const notification = document.createElement('div');
-                notification.style.position = 'fixed';
-                notification.style.bottom = '20px';
-                notification.style.right = '20px';
-                notification.style.backgroundColor = 'rgba(26, 26, 42, 0.9)';
-                notification.style.color = 'white';
-                notification.style.padding = '15px 25px';
-                notification.style.borderRadius = 'var(--border-radius)';
-                notification.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
-                notification.style.zIndex = '1000';
-                notification.style.borderLeft = '4px solid var(--primary)';
-                notification.style.transform = 'translateY(100px)';
-                notification.style.opacity = '0';
-                notification.style.transition = 'all 0.4s ease';
-                notification.textContent = message;
-                
-                document.body.appendChild(notification);
-                
-                // Animación de entrada
-                setTimeout(() => {
-                    notification.style.transform = 'translateY(0)';
-                    notification.style.opacity = '1';
-                }, 10);
-                
-                // Desaparecer después de 3 segundos
-                setTimeout(() => {
-                    notification.style.transform = 'translateY(100px)';
-                    notification.style.opacity = '0';
-                    setTimeout(() => {
-                        document.body.removeChild(notification);
-                    }, 400);
-                }, 3000);
-            }
+    for (let i = 0; i < numStars; i++) {
+        let star = document.createElement('div');
+        star.className = 'star';
+        let x = Math.random() * 100;
+        let y = Math.random() * 100;
+        let duration = Math.random() * 2 + 1; // 1 to 3 seconds
+        let size = Math.random() * 2 + 1; // 1 to 3 pixels
+
+        star.style.left = `${x}vw`;
+        star.style.top = `${y}vh`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animation = `twinkle ${duration}s linear infinite`;
+        spaceBg.appendChild(star);
+    }
+    const keyframes = `
+    @keyframes twinkle {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+    }`;
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = keyframes;
+    document.head.appendChild(styleSheet);
+
+
+    // Mood selection
+    const moods = document.querySelectorAll('.mood');
+    moods.forEach(mood => {
+        mood.addEventListener('click', () => {
+            moods.forEach(m => m.classList.remove('selected'));
+            mood.classList.add('selected');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
