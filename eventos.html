@@ -443,44 +443,6 @@
             border-radius: 20px;
         }
         
-        /* Resources Section */
-        .resource-link {
-            display: block;
-            background: rgba(26, 26, 42, 0.5);
-            border-radius: var(--border-radius);
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(122, 90, 245, 0.2);
-            transition: var(--transition);
-            text-decoration: none;
-            color: var(--light);
-            display: flex;
-            align-items: center;
-        }
-
-        .resource-link:hover {
-            background: rgba(122, 90, 245, 0.15);
-            transform: translateX(5px);
-            border-color: var(--primary);
-        }
-
-        .resource-link i {
-            font-size: 24px;
-            margin-right: 15px;
-            color: var(--accent);
-        }
-
-        .resource-link h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-light);
-        }
-
-        .resource-link p {
-            font-size: 13px;
-            color: var(--gray);
-        }
-
         /* Space Background Effect */
         .space-bg {
             position: fixed;
@@ -718,7 +680,7 @@
             </ul>
             
             <div class="profile-mini">
-                <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Perfil" onerror="this.onerror=null;this.src='https://placehold.co/200x200/7a5af5/ffffff?text=User';">
+                <img src="https://placehold.co/200x200/7a5af5/ffffff?text=User" alt="Perfil">
                 <div>
                     <h3>Mayra Schwarzschild</h3>
                     <p>Miembro desde 2023</p>
@@ -742,7 +704,7 @@
                         <i class="far fa-envelope"></i>
                     </div>
                     <div class="user-profile">
-                        <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Usuario" onerror="this.onerror=null;this.src='https://placehold.co/200x200/7a5af5/ffffff?text=User';">
+                        <img src="https://placehold.co/200x200/7a5af5/ffffff?text=User" alt="Usuario">
                         <div>
                             <h3>Mayra Schwarzschild</h3>
                             <p>Trastorno Límite de la Personalidad</p>
@@ -769,7 +731,7 @@
                         <input type="time" id="event-time" required>
 
                         <label for="event-location">Ubicación:</label>
-                        <input type="text" id="event-location" placeholder="Ej: Centro Comunitario 'La Esperanza'" required>
+                        <input type="text" id="event-location" placeholder="Ej: Online (Zoom)" required>
 
                         <label for="event-description">Descripción:</label>
                         <textarea id="event-description" placeholder="Describe brevemente el evento..." required></textarea>
@@ -784,10 +746,10 @@
                         <h2>Próximos Eventos</h2>
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <div id="events-list" class="events-list">
+                    <div id="upcoming-events-list" class="events-list">
                         <!-- Example Event 1 (Pre-loaded) -->
                         <div class="event-card">
-                            <img src="https://images.unsplash.com/photo-1518655296068-d0554ed4a6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sesión de Meditación" onerror="this.onerror=null;this.src='https://placehold.co/600x180/7a5af5/ffffff?text=Meditacion';">
+                            <img src="https://placehold.co/600x180/7a5af5/ffffff?text=Meditacion" alt="Sesión de Meditación">
                             <div class="event-info-content">
                                 <h3>Sesión de Meditación Guiada</h3>
                                 <p class="event-meta"><i class="fas fa-calendar-day"></i> 15 de julio de 2025</p>
@@ -795,14 +757,14 @@
                                 <p class="event-meta"><i class="fas fa-map-marker-alt"></i> Online (Zoom)</p>
                                 <p class="event-description">Una sesión relajante para reducir el estrés y conectar con tu interior. No se requiere experiencia previa.</p>
                                 <div class="event-actions">
-                                    <button class="btn btn-outline btn-small"><i class="fas fa-info-circle"></i> Detalles</button>
-                                    <button class="btn btn-small"><i class="fas fa-check-circle"></i> Asistir</button>
+                                    <button class="btn btn-outline btn-small details-btn"><i class="fas fa-info-circle"></i> Detalles</button>
+                                    <button class="btn btn-small attend-btn"><i class="fas fa-check-circle"></i> Asistir</button>
                                 </div>
                             </div>
                         </div>
                         <!-- Example Event 2 (Pre-loaded) -->
                         <div class="event-card">
-                            <img src="https://images.unsplash.com/photo-1542831371-d249f3e0988e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Taller de Arteterapia" onerror="this.onerror=null;this.src='https://placehold.co/600x180/4ecdc4/ffffff?text=Arteterapia';">
+                            <img src="https://placehold.co/600x180/4ecdc4/ffffff?text=Arteterapia" alt="Taller de Arteterapia">
                             <div class="event-info-content">
                                 <h3>Taller de Arteterapia "Expresarte"</h3>
                                 <p class="event-meta"><i class="fas fa-calendar-day"></i> 22 de agosto de 2025</p>
@@ -810,55 +772,67 @@
                                 <p class="event-meta"><i class="fas fa-map-marker-alt"></i> Espacio Creativo "Alma"</p>
                                 <p class="event-description">Explora tus emociones a través de la pintura y el dibujo en un ambiente de apoyo. Materiales incluidos.</p>
                                 <div class="event-actions">
-                                    <button class="btn btn-outline btn-small"><i class="fas fa-info-circle"></i> Detalles</button>
-                                    <button class="btn btn-small"><i class="fas fa-check-circle"></i> Asistir</button>
+                                    <button class="btn btn-outline btn-small details-btn"><i class="fas fa-info-circle"></i> Detalles</button>
+                                    <button class="btn btn-small attend-btn"><i class="fas fa-check-circle"></i> Asistir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Example Event 3 (Added) -->
+                        <div class="event-card">
+                            <img src="https://placehold.co/600x180/ff7eb3/ffffff?text=Charla" alt="Charla sobre Manejo del Estrés">
+                            <div class="event-info-content">
+                                <h3>Charla sobre Manejo del Estrés</h3>
+                                <p class="event-meta"><i class="fas fa-calendar-day"></i> 5 de septiembre de 2025</p>
+                                <p class="event-meta"><i class="fas fa-clock"></i> 19:00 - 20:30 hs</p>
+                                <p class="event-meta"><i class="fas fa-map-marker-alt"></i> Centro de Bienestar Integral</p>
+                                <p class="event-description">Aprende técnicas efectivas para gestionar el estrés en tu vida diaria y mejorar tu bienestar general.</p>
+                                <div class="event-actions">
+                                    <button class="btn btn-outline btn-small details-btn"><i class="fas fa-info-circle"></i> Detalles</button>
+                                    <button class="btn btn-small attend-btn"><i class="fas fa-check-circle"></i> Asistir</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Useful Resources Section -->
+                <!-- Past Events Section -->
                 <div class="card">
                     <div class="card-header">
-                        <h2>Recursos y Enlaces Útiles</h2>
-                        <i class="fas fa-external-link-alt"></i>
+                        <h2>Eventos Anteriores</h2>
+                        <i class="fas fa-history"></i>
                     </div>
-                    <a href="https://fundacionforo.com/" target="_blank" class="resource-link">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <div>
-                            <h3>Fundación Foro</h3>
-                            <p>Apoyo y recursos para el bienestar mental.</p>
+                    <div id="past-events-list" class="events-list">
+                        <!-- Example Past Event 1 -->
+                        <div class="event-card">
+                            <img src="https://placehold.co/600x180/937dff/ffffff?text=Webinar" alt="Webinar Resiliencia">
+                            <div class="event-info-content">
+                                <h3>Webinar: Fomentando la Resiliencia</h3>
+                                <p class="event-meta"><i class="fas fa-calendar-day"></i> 10 de junio de 2025</p>
+                                <p class="event-meta"><i class="fas fa-clock"></i> 10:00 - 11:30 hs</p>
+                                <p class="event-meta"><i class="fas fa-map-marker-alt"></i> Online</p>
+                                <p class="event-description">Exploramos herramientas para desarrollar la resiliencia en tiempos difíciles. Grabación disponible en la sección de Recursos.</p>
+                                <div class="event-actions">
+                                    <button class="btn btn-outline btn-small details-btn" disabled><i class="fas fa-info-circle"></i> Detalles</button>
+                                    <button class="btn btn-small" disabled>Finalizado</button>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a href="https://www.telefonodelaesperanza.org/" target="_blank" class="resource-link">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h3>Teléfono de la Esperanza (Ayuda al Suicida)</h3>
-                            <p>Línea de ayuda para personas en crisis.</p>
+                        <!-- Example Past Event 2 -->
+                        <div class="event-card">
+                            <img src="https://placehold.co/600x180/ff7eb3/ffffff?text=Grupo+Apoyo" alt="Charla de Apertura: Grupo de Apoyo para Ansiedad">
+                            <div class="event-info-content">
+                                <h3>Charla de Apertura: Grupo de Apoyo para Ansiedad</h3>
+                                <p class="event-meta"><i class="fas fa-calendar-day"></i> 25 de mayo de 2025</p>
+                                <p class="event-meta"><i class="fas fa-clock"></i> 17:00 - 18:30 hs</p>
+                                <p class="event-meta"><i class="fas fa-map-marker-alt"></i> Salón Comunitario</p>
+                                <p class="event-description">Sesión introductoria de nuestro nuevo grupo de apoyo. Un espacio para compartir y crecer juntos.</p>
+                                <div class="event-actions">
+                                    <button class="btn btn-outline btn-small details-btn" disabled><i class="fas fa-info-circle"></i> Detalles</button>
+                                    <button class="btn btn-small" disabled>Finalizado</button>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a href="https://ludopatasanonimos.org/" target="_blank" class="resource-link">
-                        <i class="fas fa-dice"></i>
-                        <div>
-                            <h3>Ludópatas Anónimos</h3>
-                            <p>Grupos de apoyo para la recuperación de la ludopatía.</p>
-                        </div>
-                    </a>
-                    <a href="https://na.org/" target="_blank" class="resource-link">
-                        <i class="fas fa-prescription-bottle-alt"></i>
-                        <div>
-                            <h3>Narcóticos Anónimos (N.A.)</h3>
-                            <p>Comunidad global de recuperación de adicciones.</p>
-                        </div>
-                    </a>
-                    <a href="https://aa.org/" target="_blank" class="resource-link">
-                        <i class="fas fa-beer"></i>
-                        <div>
-                            <h3>Alcohólicos Anónimos (A.A.)</h3>
-                            <p>Apoyo para la recuperación del alcoholismo.</p>
-                        </div>
-                    </a>
+                    </div>
                 </div>
 
             </div>
@@ -899,18 +873,25 @@
             const modalMessage = document.getElementById('modal-message');
             const modalCloseBtn = document.getElementById('modal-close-btn');
 
+            /**
+             * Muestra el modal personalizado con un título y mensaje.
+             * @param {string} title - El título del modal.
+             * @param {string} message - El mensaje a mostrar.
+             */
             function showCustomModal(title, message) {
-                modalTitle.textContent = title;
-                modalMessage.textContent = message;
+                modalTitle.innerHTML = title; // Use innerHTML to allow <br> for line breaks
+                modalMessage.innerHTML = message; // Use innerHTML for line breaks
                 modalOverlay.classList.add('show');
             }
 
+            // Cierra el modal cuando se hace clic en el botón de cerrar
             if (modalCloseBtn) {
                 modalCloseBtn.addEventListener('click', () => {
                     modalOverlay.classList.remove('show');
                 });
             }
 
+            // Cierra el modal si se hace clic fuera de su contenido
             if (modalOverlay) {
                 modalOverlay.addEventListener('click', (event) => {
                     if (event.target === modalOverlay) {
@@ -921,7 +902,7 @@
 
             // --- Event Creation Logic ---
             const createEventForm = document.getElementById('create-event-form');
-            const eventsListContainer = document.getElementById('events-list');
+            const upcomingEventsList = document.getElementById('upcoming-events-list');
 
             createEventForm.addEventListener('submit', (event) => {
                 event.preventDefault(); // Prevent default form submission
@@ -937,18 +918,18 @@
                     return;
                 }
 
-                // Simulate image URL (can be replaced with actual upload later)
+                // Use placehold.co for all dynamic images for reliability
                 const imageUrls = [
-                    "https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1542831371-d249f3e0988e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1518655296068-d0554ed4a6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1517841909893-9c8f94e9f7b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    "https://placehold.co/600x180/7a5af5/ffffff?text=Nuevo+Evento",
+                    "https://placehold.co/600x180/4ecdc4/ffffff?text=Evento+Comunitario",
+                    "https://placehold.co/600x180/ff7eb3/ffffff?text=Taller+Online",
+                    "https://placehold.co/600x180/937dff/ffffff?text=Sesion+Grupo"
                 ];
                 const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
 
                 const newEventCard = `
                     <div class="event-card">
-                        <img src="${randomImageUrl}" alt="${title}" onerror="this.onerror=null;this.src='https://placehold.co/600x180/7a5af5/ffffff?text=Evento';" >
+                        <img src="${randomImageUrl}" alt="${title}">
                         <div class="event-info-content">
                             <h3>${title}</h3>
                             <p class="event-meta"><i class="fas fa-calendar-day"></i> ${new Date(date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
@@ -956,34 +937,34 @@
                             <p class="event-meta"><i class="fas fa-map-marker-alt"></i> ${location}</p>
                             <p class="event-description">${description}</p>
                             <div class="event-actions">
-                                <button class="btn btn-outline btn-small"><i class="fas fa-info-circle"></i> Detalles</button>
-                                <button class="btn btn-small"><i class="fas fa-check-circle"></i> Asistir</button>
+                                <button class="btn btn-outline btn-small details-btn"><i class="fas fa-info-circle"></i> Detalles</button>
+                                <button class="btn btn-small attend-btn"><i class="fas fa-check-circle"></i> Asistir</button>
                             </div>
                         </div>
                     </div>
                 `;
 
-                eventsListContainer.insertAdjacentHTML('afterbegin', newEventCard); // Add new event at the top
+                upcomingEventsList.insertAdjacentHTML('afterbegin', newEventCard); // Add new event at the top
                 showCustomModal('Evento Creado', `Tu evento "${title}" ha sido publicado.`);
                 createEventForm.reset(); // Clear the form
             });
 
             // --- Event Actions Logic (for pre-loaded and new events) ---
-            eventsListContainer.addEventListener('click', (event) => {
+            document.addEventListener('click', (event) => {
                 const target = event.target;
-                if (target.classList.contains('btn-outline') && target.textContent.includes('Detalles')) {
+                if (target.classList.contains('details-btn')) {
                     const eventCard = target.closest('.event-card');
                     const title = eventCard.querySelector('h3').textContent;
                     const fullDescription = eventCard.querySelector('.event-description').textContent;
-                    const date = eventCard.querySelector('.event-meta:nth-child(1)').textContent.replace('Fecha: ', '');
-                    const time = eventCard.querySelector('.event-meta:nth-child(2)').textContent.replace('Hora: ', '');
-                    const location = eventCard.querySelector('.event-meta:nth-child(3)').textContent.replace('Ubicación: ', '');
+                    const date = eventCard.querySelector('.event-meta:nth-child(1)').textContent;
+                    const time = eventCard.querySelector('.event-meta:nth-child(2)').textContent;
+                    const location = eventCard.querySelector('.event-meta:nth-child(3)').textContent;
 
                     showCustomModal(
                         `Detalles del Evento: ${title}`,
-                        `Fecha: ${date}<br>Hora: ${time}<br>Ubicación: ${location}<br><br>${fullDescription}`
+                        `${date}<br>${time}<br>${location}<br><br>${fullDescription}`
                     );
-                } else if (target.classList.contains('btn') && target.textContent.includes('Asistir')) {
+                } else if (target.classList.contains('attend-btn')) {
                     const eventCard = target.closest('.event-card');
                     const title = eventCard.querySelector('h3').textContent;
                     showCustomModal('Confirmación de Asistencia', `¡Gracias por confirmar tu asistencia a "${title}"!`);
