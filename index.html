@@ -213,14 +213,14 @@
             color: var(--light);
             cursor: pointer;
             transition: var(--transition);
-            padding: 5px 8px; /* Added padding for better click target */
-            border-radius: var(--border-radius); /* Rounded corners */
+            padding: 5px 8px;
+            border-radius: var(--border-radius);
         }
         
         .notification:hover, .messages:hover, .toggle-right-column:hover {
             color: var(--primary-light);
             transform: scale(1.1);
-            background: rgba(122, 90, 245, 0.1); /* Subtle background on hover */
+            background: rgba(122, 90, 245, 0.1);
         }
         
         .notification::after, .messages::after {
@@ -262,26 +262,26 @@
         /* Content Grid */
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr; /* Left, Middle, Right */
-            gap: 25px;
-            transition: grid-template-columns 0.3s ease-in-out; /* Smooth transition for grid change */
+            grid-template-columns: 250px 1fr 250px; /* Fixed sidebars, flexible middle */
+            gap: 20px; /* Reduced gap */
+            transition: grid-template-columns 0.3s ease-in-out;
         }
 
         /* Specific column styling */
         .left-column, .middle-column, .right-column {
-            display: block; /* Ensure visibility by default within grid */
+            display: block;
         }
         
         /* Right column specific styles for deployable functionality */
         .right-column {
-            background: var(--dark-card); /* Card-like background */
+            background: var(--dark-card);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             padding: 25px;
             border: 1px solid rgba(122, 90, 245, 0.1);
-            transition: all 0.3s ease-in-out; /* For smooth toggle */
-            overflow: hidden; /* Hide content when collapsed */
-            box-sizing: border-box; /* Include padding in width calculations */
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         /* Class for collapsed state of right column */
@@ -291,7 +291,7 @@
             padding: 0;
             opacity: 0;
             visibility: hidden;
-            border: none; /* Remove border when collapsed */
+            border: none;
         }
 
         .card {
@@ -339,9 +339,9 @@
         
         /* Mood Tracker */
         .mood-tracker .moods {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            display: flex; /* Changed to flex */
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: space-between; /* Distribute items with space */
             margin-bottom: 20px;
         }
         
@@ -355,6 +355,9 @@
             border-radius: var(--border-radius);
             background: rgba(26, 26, 42, 0.5);
             border: 1px solid rgba(122, 90, 245, 0.1);
+            margin: 5px; /* Added margin for spacing */
+            flex: 1 1 calc(25% - 10px); /* Adjust width to fit 4 per row with margin */
+            min-width: 60px; /* Ensure a minimum width for small screens */
         }
         
         .mood:hover {
@@ -534,6 +537,9 @@
             border-radius: var(--border-radius);
             margin-bottom: 15px;
             border: 1px solid rgba(122, 90, 245, 0.1);
+            display: block; /* Ensure the image takes up its own line */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 100%; /* Ensure it doesn't overflow its container */
         }
         
         .post-stats {
@@ -681,8 +687,8 @@
         .resource {
             display: flex;
             align-items: center;
-            margin-bottom: 15px; /* Adjusted margin */
-            padding: 10px; /* Adjusted padding */
+            margin-bottom: 15px;
+            padding: 10px;
             background: rgba(26, 26, 42, 0.5);
             border-radius: var(--border-radius);
             transition: var(--transition);
@@ -697,27 +703,27 @@
         }
         
         .resource-icon {
-            width: 40px; /* Smaller icon size for right column */
-            height: 40px; /* Smaller icon size for right column */
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 10px; /* Slightly smaller radius */
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px; /* Adjusted margin */
-            font-size: 18px; /* Smaller font size */
+            margin-right: 12px;
+            font-size: 18px;
             color: white;
         }
         
         .resource-info h3 {
-            font-size: 15px; /* Smaller font size */
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 3px;
             color: var(--light);
         }
         
         .resource-info p {
-            font-size: 13px; /* Smaller font size */
+            font-size: 13px;
             color: var(--gray);
         }
 
@@ -981,21 +987,21 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .content-grid {
-                grid-template-columns: 1fr 2fr; /* Hides the right column by default on smaller screens */
+                grid-template-columns: 250px 1fr; /* Left sidebar, flexible middle */
             }
             .right-column {
-                display: none; /* Explicitly hide right column when grid changes to 2 columns */
+                display: none; /* Hidden by default */
             }
-            /* When right column is toggled on smaller screens, it will appear as an overlay or push content */
+            /* When right column is toggled on smaller screens, it will appear as an overlay */
             .right-column.active-mobile-overlay {
-                display: block; /* Override display: none */
+                display: block;
                 position: fixed;
                 top: 0;
                 right: 0;
                 width: 260px; /* Fixed width for overlay */
                 height: 100vh;
-                z-index: 990; /* Below modal overlay */
-                background: linear-gradient(to bottom, #1a1a2e, #16213e); /* Match sidebar background */
+                z-index: 990;
+                background: linear-gradient(to bottom, #1a1a2e, #16213e);
                 box-shadow: var(--shadow);
                 transform: translateX(100%);
                 animation: slideInRight 0.3s forwards;
@@ -1052,35 +1058,35 @@
                 margin-left: 80px;
             }
             .search-bar {
-                width: 100%; /* Full width on smaller screens */
+                width: 100%;
             }
             .user-actions {
-                flex-wrap: wrap; /* Wrap actions on small screens */
+                flex-wrap: wrap;
                 justify-content: flex-end;
             }
             .user-actions > div {
-                margin-right: 10px; /* Adjust spacing */
+                margin-right: 10px;
             }
         }
         
         @media (max-width: 768px) {
             .main-content {
-                margin-left: 0; /* Remove sidebar margin on very small screens if sidebar is toggled or hidden */
+                margin-left: 0;
                 padding: 20px;
             }
             .sidebar {
                 width: 100%;
                 height: auto;
-                position: relative; /* Allow sidebar to stack on top */
+                position: relative;
                 box-shadow: none;
                 border-right: none;
                 padding-bottom: 0;
             }
             .logo, .profile-mini {
-                display: none; /* Hide logo and profile mini on very small screens, could add a mobile nav toggle */
+                display: none;
             }
             .nav-links {
-                display: flex; /* Make navigation links horizontal */
+                display: flex;
                 justify-content: space-around;
                 width: 100%;
                 margin-top: 0;
@@ -1091,7 +1097,7 @@
                 margin-bottom: 0;
             }
             .nav-links a {
-                flex-direction: column; /* Stack icon and text */
+                flex-direction: column;
                 font-size: 12px;
                 padding: 8px 5px;
             }
@@ -1101,24 +1107,24 @@
                 font-size: 20px;
             }
             .search-bar {
-                width: 100%; /* Occupy full width */
-                order: 1; /* Place search bar first */
+                width: 100%;
+                order: 1;
                 margin-bottom: 15px;
             }
             .user-actions {
-                order: 2; /* Place user actions second */
+                order: 2;
                 width: 100%;
                 justify-content: space-around;
                 margin-bottom: 15px;
             }
             .user-profile {
-                display: none; /* Hide full user profile on very small screens */
+                display: none;
             }
             .content-grid {
-                grid-template-columns: 1fr; /* Single column on mobile */
+                grid-template-columns: 1fr;
             }
             .left-column {
-                display: none; /* Hide left column on mobile */
+                display: none;
             }
         }
 
@@ -1320,7 +1326,7 @@
                             </div>
                             <div class="post-content">
                                 <p class="post-text">Hoy fue un día desafiante, pero logré mantener la calma durante una situación estresante. Pequeñas victorias se sienten grandes. 💪</p>
-                                <img src="https://placehold.co/600x400/4ecdc4/ffffff?text=Imagen+de+apoyo" alt="Post Image" class="post-image">
+                                <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Imagen de apoyo" class="post-image" onerror="this.onerror=null;this.src='https://placehold.co/1200x600/4ecdc4/ffffff?text=Imagen+de+apoyo';">
                                 <div class="post-stats">
                                     <span><i class="fas fa-heart"></i> 25 Me gusta</span>
                                     <span><i class="fas fa-comment"></i> 8 Comentarios</span>
@@ -1461,18 +1467,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Star background effect
             const spaceBg = document.getElementById('space-bg');
-            const numStars = 100; // Reduced for performance, can be increased
+            const numStars = 100;
             for (let i = 0; i < numStars; i++) {
                 let star = document.createElement('div');
                 star.className = 'star';
-                star.style.width = Math.random() * 3 + 1 + 'px'; // 1 to 4px
+                star.style.width = Math.random() * 3 + 1 + 'px';
                 star.style.height = star.style.width;
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDuration = Math.random() * 2 + 1 + 's'; // 1 to 3s
+                star.style.animationDuration = Math.random() * 2 + 1 + 's';
                 star.style.animationDelay = Math.random() * 2 + 's';
                 star.style.opacity = Math.random();
-                star.style.boxShadow = `0 0 ${Math.random() * 5 + 2}px white`; // Glow effect
+                star.style.boxShadow = `0 0 ${Math.random() * 5 + 2}px white`;
                 spaceBg.appendChild(star);
             }
 
@@ -1542,12 +1548,11 @@
             // --- Send Comment Logic ---
             document.querySelectorAll('.send-comment').forEach(button => {
                 button.addEventListener('click', () => {
-                    const commentInput = button.previousElementSibling; // Get the input field
+                    const commentInput = button.previousElementSibling;
                     if (commentInput && commentInput.value.trim() !== '') {
                         const newCommentText = commentInput.value.trim();
-                        // In a real app, you'd send this to a server
                         showCustomModal('Comentario Enviado', `Tu comentario: "${newCommentText}" ha sido enviado.`);
-                        commentInput.value = ''; // Clear the input
+                        commentInput.value = '';
                     } else {
                         showCustomModal('Error', 'Por favor, escribe algo para comentar.');
                     }
@@ -1561,40 +1566,31 @@
             const contentGrid = document.getElementById('content-grid');
 
             if (rightColumnToggleBtn && rightColumn && contentGrid) {
-                // Check initial state based on screen size for responsiveness
                 function updateColumnLayout() {
                     if (window.innerWidth <= 1200) {
-                        // On smaller screens, right column is hidden by default and acts as an overlay
-                        rightColumn.classList.add('collapsed'); // Ensure it's hidden by default on small screens
-                        rightColumn.classList.add('active-mobile-overlay'); // Add overlay class
-                        contentGrid.style.gridTemplateColumns = '1fr 2fr'; // Keep 2 columns for main content on small screens
+                        rightColumn.classList.add('collapsed');
+                        rightColumn.classList.add('active-mobile-overlay');
+                        contentGrid.style.gridTemplateColumns = '250px 1fr'; /* Left sidebar, flexible middle */
                     } else {
-                        // On larger screens, right column is visible by default (3 columns)
                         rightColumn.classList.remove('collapsed');
                         rightColumn.classList.remove('active-mobile-overlay');
-                        contentGrid.style.gridTemplateColumns = '1fr 2fr 1fr'; // Default 3 columns
+                        contentGrid.style.gridTemplateColumns = '250px 1fr 250px'; /* Fixed sidebars, flexible middle */
                     }
                 }
 
-                // Initial setup
                 updateColumnLayout();
-
-                // Update on window resize
                 window.addEventListener('resize', updateColumnLayout);
 
                 rightColumnToggleBtn.addEventListener('click', () => {
-                    // Toggle the 'collapsed' class on the right column
                     rightColumn.classList.toggle('collapsed');
 
-                    // Adjust grid template columns based on collapse state only for larger screens
                     if (window.innerWidth > 1200) {
                         if (rightColumn.classList.contains('collapsed')) {
-                            contentGrid.style.gridTemplateColumns = '1fr 3fr'; // Middle column expands
+                            contentGrid.style.gridTemplateColumns = '250px 1fr'; /* Middle column expands */
                         } else {
-                            contentGrid.style.gridTemplateColumns = '1fr 2fr 1fr'; // Restore 3 columns
+                            contentGrid.style.gridTemplateColumns = '250px 1fr 250px'; /* Restore 3 columns */
                         }
                     }
-                    // For smaller screens, the 'active-mobile-overlay' class and its animations handle the deployable effect
                 });
             }
         });
